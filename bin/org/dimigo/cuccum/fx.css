@@ -1,0 +1,63 @@
+#title-btn {
+	-fx-text-fill : white;
+	-fx-background-color : #009688;
+	-fx-background-radius : 300;
+	-fx-height : 300;
+	-fx-width : 300;
+}
+
+#start-btn {
+ 	-fx-text-fill : white;
+ 	-fx-background-color : #80CBC4;
+ 	-fx-height : 50;
+ 	-fx-width : 200;
+}
+
+#setting-btn {
+ 	-fx-text-fill : white;
+ 	-fx-background-color : #80CBC4;
+ 	-fx-height : 50;
+ 	-fx-width : 200;
+}
+
+#challenge-btn {
+	-fx-font-size : 30;
+	-fx-text-fill : white;
+	-fx-background-color : #55aa55;
+}
+
+#abandon-btn {
+	-fx-font-size : 30;
+	-fx-text-fill : white;
+	-fx-background-color : #ff5555;
+}
+
+#player1-name {
+ 	-fx-font-size : 30;
+}
+
+#player2-name {
+ 	-fx-font-size : 30;
+}
+
+#player3-name {
+ 	-fx-font-size : 30;
+}
+
+#player1-number, #player2-number, #player3-number {
+ 	-fx-font-size : 50;
+ 	-fx-background-radius : 50;
+ 	-fx-text-fill : white;
+}
+
+#player1-number {
+	-fx-background-color : #5555ff;
+}
+
+#player2-number {
+	-fx-background-color : #55aa55;
+}
+
+#player3-number {
+	-fx-background-color : #ff5555;
+}

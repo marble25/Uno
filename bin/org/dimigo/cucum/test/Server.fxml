@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dimigo.cucum.server.Controller">
+   <children>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Button id="Btn_Start" fx:id="Btn_Start" layoutX="260.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#StartServer" text="ServerStart" />
+            <Button id="Btn_End" fx:id="Btn_End" layoutX="263.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#StopServer" text="ServerEnd" />
+            <Label layoutX="206.0" layoutY="129.0" text="IP" />
+            <Label id="IPaddress" fx:id="IPaddress" layoutX="252.0" layoutY="129.0" text="192.168.20.100" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

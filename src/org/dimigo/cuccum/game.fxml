@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<Pane fx:id="gameDisplay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dimigo.cuccum.Controller">
+    <children>
+        <Text id="player1-name" layoutX="111.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" />
+        <Text id="player2-name" layoutX="910.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" />
+        <Text id="player3-name" layoutX="1711.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" />
+        <Button fx:id="p1num" id="player1-number" disable="true" layoutX="111.0" layoutY="420.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" text="7" textAlignment="CENTER" />
+        <Button fx:id="p2num" id="player2-number" disable="true" layoutX="910.0" layoutY="40.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" text="7" textAlignment="CENTER" />
+        <Button fx:id="p3num" id="player3-number" disable="true" layoutX="1711.0" layoutY="420.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" text="7" textAlignment="CENTER" />
+        <Circle fx:id="turn" fill="#ff1f1f" centerX="960.0" centerY="540.0" radius="10.0" />
+        <ImageView fx:id="clockArrow" fitWidth="150" layoutX="1700" layoutY="50" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/ac.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="clockArrowRe" fitWidth="150" layoutX="1700" layoutY="50" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@img/an.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="card1" fitWidth="200.0" layoutX="985.0" layoutY="365.0" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="card2" fitWidth="200.0" layoutX="987.5" layoutY="367.5" preserveRatio="true" visible="true">
+             <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="card3" fitWidth="200.0" layoutX="990.0" layoutY="370.0" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="card4" fitWidth="200.0" layoutX="992.5" layoutY="372.5" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="unoCard1" fitWidth="200.0" layoutX="995.0" layoutY="375.0" onMouseClicked="#drawUno1" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="unoCard2" fitWidth="200.0" layoutX="995.0" layoutY="375.0" onMouseClicked="#drawUno2" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/uno.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="cemetery" fitWidth="200.0" layoutX="730.0" layoutY="370.0" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck18" fitWidth="200.0" layoutX="275.0" layoutY="1200.0" onMouseEntered="#enter18" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck16" fitWidth="200.0" layoutX="340.0" layoutY="1200.0" onMouseEntered="#enter16" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck14" fitWidth="200.0" layoutX="405.0" layoutY="1200.0" onMouseEntered="#enter14" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck12" fitWidth="200.0" layoutX="470.0" layoutY="1200.0" onMouseEntered="#enter12" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck10" fitWidth="200.0" layoutX="535.0" layoutY="1200.0" onMouseEntered="#enter10" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck8" fitWidth="200.0" layoutX="600.0" layoutY="1200.0" onMouseEntered="#enter8" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck6" fitWidth="200.0" layoutX="665.0" layoutY="1200.0" onMouseEntered="#enter6" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck4" fitWidth="200.0" layoutX="730.0" layoutY="1200.0" onMouseEntered="#enter4" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck2" fitWidth="200.0" layoutX="795.0" layoutY="1200.0" onMouseEntered="#enter2" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck1" fitWidth="200.0" layoutX="860.0" layoutY="1200.0" onMouseEntered="#enter1" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck3" fitWidth="200.0" layoutX="925.0" layoutY="1200.0" onMouseEntered="#enter3" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck5" fitWidth="200.0" layoutX="990.0" layoutY="1200.0" onMouseEntered="#enter5" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck7" fitWidth="200.0" layoutX="1055.0" layoutY="1200.0" onMouseEntered="#enter7" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck9" fitWidth="200.0" layoutX="1120.0" layoutY="1200.0" onMouseEntered="#enter9" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck11" fitWidth="200.0" layoutX="1185.0" layoutY="1200.0" onMouseEntered="#enter11" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/r11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck13" fitWidth="200.0" layoutX="1250.0" layoutY="1200.0" onMouseEntered="#enter13" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck15" fitWidth="200.0" layoutX="1315.0" layoutY="1200.0" onMouseEntered="#enter15" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck17" fitWidth="200.0" layoutX="1380.0" layoutY="1200.0" onMouseEntered="#enter17" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="deck19" fitWidth="200.0" layoutX="1445.0" layoutY="1200.0" onMouseEntered="#enter19" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="temp" fitWidth="200.0" layoutX="0" layoutY="650.0" onMouseClicked="#throwCard" onMouseExited="#checkTemp2" opacity="0" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/b1.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="scene2" arcHeight="0" arcWidth="0" fill="white" height="1080.0" stroke="WHITE" strokeType="INSIDE" width="1920.0" />
+        <ImageView fx:id="loading" fitWidth="300" layoutX="810.0" layoutY="390.0" preserveRatio="true" visible="true">
+            <image>
+                <Image url="@img/loading.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="scene1" arcHeight="0" arcWidth="0" fill="white" height="1080.0" stroke="WHITE" strokeType="INSIDE" width="1920.0" />
+        <Button id="title-btn" fx:id="titleBtn" alignment="CENTER" layoutX="860.0" layoutY="440.0" maxHeight="200.0" maxWidth="200.0" minHeight="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#titleMove" prefHeight="200.0" prefWidth="200.0" text="UNO" textAlignment="JUSTIFY">
+            <font>
+                <Font name="BM JUA " size="50.0" />
+            </font>
+        </Button>
+        <Button id="start-btn" fx:id="startBtn" disable="true" layoutX="895.0" layoutY="475.0" mnemonicParsing="false" onAction="#gameStart" opacity="0.0" text="Game Start" textAlignment="CENTER">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <Button id="setting-btn" fx:id="settingBtn" disable="true" layoutX="914.0" layoutY="560.0" mnemonicParsing="false" opacity="0.0" text="Setting" textAlignment="CENTER">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="k1" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k2" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b0" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b1" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b2" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b3" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b4" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b5" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b6" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b7" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b8" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b9" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b10" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b11" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="b12" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/b12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g0" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g1" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g2" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g3" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g4" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g5" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g6" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g7" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g8" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g9" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g10" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g11" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="g12" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/g12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r0" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r1" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r2" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r3" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r4" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r5" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r6" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r7" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r8" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r9" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r10" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r11" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="r12" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/r12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y0" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y1" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y2" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y3" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y4" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y5" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y6" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y7" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y8" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y9" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y10" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y11" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="y12" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/y12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k10" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k1_0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k11" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k1_1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k12" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k1_2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k13" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k1_3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k20" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k2_0.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k21" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k2_1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k22" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k2_2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="k23" fitWidth="0.0" layoutX="0.0" layoutY="0.0" opacity="0" visible="false">
+            <image>
+                <Image url="@img/k2_3.png" />
+            </image>
+        </ImageView>
+      <Rectangle fx:id="shadow" fill="GREY" height="1080.0" layoutX="2000.0" layoutY="0" opacity="0.5"  width="1920.0" />
+      <Rectangle fx:id="popup" fill="WHITE" height="500.0" layoutX="2000.0" layoutY="290.0" width="500.0" />
+      <Rectangle fx:id="red" fill="#ff5555" height="200.0" layoutX="2000.0" layoutY="340.0"  width="200.0" onMouseClicked="#red" />
+      <Rectangle fx:id="blue" fill="#5555ff" height="200.0" layoutX="2000.0" layoutY="340.0" width="200.0" onMouseClicked="#blue" />
+      <Rectangle fx:id="yellow" fill="#ffaa00" height="200.0" layoutX="2000.0" layoutY="540.0"  width="200.0" onMouseClicked="#yellow" />
+      <Rectangle fx:id="green" fill="#55aa55" height="200.0" layoutX="2000.0" layoutY="540.0"  width="200.0" onMouseClicked="#green" />
+      <ImageView fx:id="victory" fitWidth="1000"  fitHeight="820"  X="2000"  Y="150" opacity="0" >
+            <image>
+                <Image url="@img/victory.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="defeat" fitWidth="1000"  fitHeight="1110"  X="2000"  Y="0" opacity="0" >
+            <image>
+                <Image url="@img/defeat.png" />
+            </image>
+        </ImageView>
+    </children>
+    <stylesheets>
+        <URL value="@fx.css" />
+    </stylesheets>
+</Pane>

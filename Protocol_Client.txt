@@ -1,0 +1,6 @@
+﻿Get : 가장 위의 카드를 가져온다
+Set (number) (color) : (number) (color)의 카드를 한 장 낸다 
+(단, (number)가 13이나 14일 경우, (color)는 앞으로의 색을 말한다)
+Chal (index) : (index)에게 도전한다
+NoChal (index) : (index)에게 도전하지 않는다
+Color (color) : 색을 (color)로 변경한다

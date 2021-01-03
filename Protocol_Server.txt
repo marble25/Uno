@@ -1,0 +1,7 @@
+﻿(index) Index: 클라이언트에게 (index)라고 번호를 설정해 준다.
+TopCard (number1) (color1) : 가장 위의 카드는 (number1) (color1)이다.
+(index) CardList (number) (number1) (color1) (number2) (color2)... : (index)에게 카드가 (number)만큼 있고, (number1) (color1) 등이 있다. 
+(index) Success : (index)의 카드 내기가 성공했다.
+(index) Fail : (index)의 카드 내기가 실패했다
+(index) Turn : (index)의 차례이다
+(index) Plus (index1) (adder): (index) 클라이언트가 (adder)만큼 카드를 더해준다
